@@ -23,7 +23,7 @@ class Search extends Component {
   }
 
   search(query){
-    var url = `http://api.themoviedb.org/3/search/movie?query=${query}&api_key=bafa92ba7c3f1f27e5848f206cf3d4f6`;
+    var url = `https://api.themoviedb.org/3/search/movie?query=${query}&api_key=bafa92ba7c3f1f27e5848f206cf3d4f6`;
     Request.get(url).then((response) => {
       this.setState({
         movies: response.body.results,
@@ -44,7 +44,7 @@ class Search extends Component {
         <div key={movieId} className="col-xs-12 movie-info">
           <div>{movie.title}</div>
           <div>{movie.release_date}</div>
-          <div><img src={`http://image.tmdb.org/t/p/w185/${movie.poster_path}`} alt="poster" /></div>
+          <div><img src={`https://image.tmdb.org/t/p/w185/${movie.poster_path}`} alt="poster" /></div>
           <div>{movie.overview}</div>
         </div>
       );
@@ -70,7 +70,7 @@ class Search extends Component {
       return (
         <div className="col-xs-12 col-sm-4 col-md-3 movie-thumbnail">
           <div>
-            <img src={`http://image.tmdb.org/t/p/w185/${movie.poster_path}`} alt="poster" />
+            <img src={`https://image.tmdb.org/t/p/w185/${movie.poster_path}`} alt="poster" />
           </div>
           <div>
             <MovieModal

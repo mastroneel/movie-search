@@ -50,7 +50,7 @@ class MovieModal extends React.Component {
         <Modal isOpen={this.state.isActive} onRequestClose={this.toggleModal}>
           <button onClick={this.toggleModal}>Close Modal</button>
           <div>
-            <img src={`http://image.tmdb.org/t/p/w185/${posterPath}`} alt="poster" />
+            <img src={`https://image.tmdb.org/t/p/w185/${posterPath}`} alt="poster" />
           </div>
           <div>
             {title}
