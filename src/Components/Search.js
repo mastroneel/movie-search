@@ -1,31 +1,21 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import Movie from './Movie';
+import MovieModal from './MovieModal';
 import Request from 'superagent';
+import ReactBootstrap from 'react-bootstrap';
 import _ from 'lodash';
 
 class Search extends Component {
+
+
+  // handleChange(e) {
+  //   e.target.select();
+  // }
+
   constructor(){
     super();
     this.state = {};
-  }
-
-  componentWillMount(){
-    this.search();
-  }
-
-  componentDidMount(){
-
-  }
-
-  componentWillReceiveProps(nextProps){
-
-  }
-
-  componentWillUpdate(nextProps, nextState){
-
-  }
-
-  componentWillUnmount(){
-
   }
 
   updateSearch(){
@@ -37,19 +27,94 @@ class Search extends Component {
     Request.get(url).then((response) => {
       this.setState({
         movies: response.body.results,
-        results: response.body.total_results
+        results: response.body.total_results,
       });
     });
   }
 
+  componentWillMount(){
+    this.search();
+  }
+
+
+
   render() {
-    var movies = _.map(this.state.movies, (movie) => {
-      return <li>{movie.original_title}</li>;
-    })
+    var movieInfo = _.map(this.state.movies, (movie) => {
+      return (
+        <div key={movieId} className="col-xs-12 movie-info">
+          <div>{movie.title}</div>
+          <div>{movie.release_date}</div>
+          <div><img src={`http://image.tmdb.org/t/p/w185/${movie.poster_path}`} alt="poster" /></div>
+          <div>{movie.overview}</div>
+        </div>
+      );
+    });
+
+    // var title = _.map(this.state.movies, (movie) => {
+    //   return <div>{movie.title}</div>;
+    // });
+
+    var movieId = _.map(this.state.movies, (movie) => {
+      return (
+        <div>
+          {movie.id}
+        </div>
+      );
+    });
+
+    // var year = _.map(this.state.movies, (movie) => {
+    //   return <div>{movie.release_date}</div>;
+    // });
+
+    var movieThumbnail = _.map(this.state.movies, (movie) => {
+      return (
+        <div className="col-xs-12 col-sm-4 col-md-3 movie-thumbnail">
+          <div>
+            <img src={`http://image.tmdb.org/t/p/w185/${movie.poster_path}`} alt="poster" />
+          </div>
+          <div>
+            <MovieModal
+              title={movie.title}
+              year={movie.release_date}
+              posterPath={movie.poster_path}
+              overview={movie.overview}
+              rating={movie.vote_average}
+            />
+          </div>
+        </div>
+      );
+    });
+
+    //
+
+    //
+    // var poster = _.map(this.state.movies, (movie) => {
+    //   return <div><img src={`http://image.tmdb.org/t/p/w185/${movie.poster_path}`} alt="poster" /></div>;
+    // });
+    //
+    // var overview = _.map(this.state.movies, (movie) => {
+    //   return <div>{movie.overview}</div>;
+    // });
+
     return (
-      <div className="Movie">
-        <input ref="query" onChange={ (e) => { this.updateSearch(); } } type="text" />
-        <ul>{movies}</ul>
+      <div className="Search">
+        <form>
+          <input ref="query" onChange={ (e) => { this.updateSearch(); } } type="text" />
+        </form>
+        {movieThumbnail}
+
+         {/* <form className="searchbar">
+           <input ref="search suggestion" onClick={this.handleChange} type="text" placeholder="Search Movie Title..." />
+         </form> */}
+
+
+
+
+
+
+
+
+         {/* <Movie movieInfo={movieInfo}/> */}
       </div>
     );
   }
