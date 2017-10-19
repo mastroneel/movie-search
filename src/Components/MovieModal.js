@@ -48,30 +48,27 @@ class MovieModal extends React.Component {
       <section>
         <button onClick={this.toggleModal}>{title}</button>
         <Modal isOpen={this.state.isActive} onRequestClose={this.toggleModal}>
-          <button onClick={this.toggleModal}>Close Modal</button>
-          <div>
+          <button onClick={this.toggleModal}>Close</button>
+          <div className="col-xs-12 col-sm-6">
             <img src={`https://image.tmdb.org/t/p/w185/${posterPath}`} alt="poster" />
           </div>
-          <div>
-            {title}
-          </div>
-          <div>
-            {year}
-          </div>
-          <div>
-            {overview}
-          </div>
-          <div>
+          <div className="col-xs-12 col-sm-6 information">
+            <p className="title">
+              {title}
+            </p>
+            <p>
+              {year}
+            </p>
+            <p>
+              {overview}
+            </p>
             <p>
               Rating: {rating} / 10
             </p>
+            <p>
+              {genres}
+            </p>
           </div>
-          <div>
-            {genres}
-          </div>
-
-
-
           {/* {movieInfo} */}
         </Modal>
       </section>

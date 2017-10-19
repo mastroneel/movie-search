@@ -1,7 +1,178 @@
+@import url('https://fonts.googleapis.com/css?family=Saira+Extra+Condensed');
 
+body {
+  background-color: #111111;
+  font-family: 'Saira Extra Condensed', sans-serif;
+}
+
+h1 {
+  text-align: center;
+  color: #42f450;
+  margin-top: 60px;
+}
 
 .movie-thumbnail {
   margin: 0 auto;
   text-align: center;
   margin-top: 50px;
+}
+
+input {
+  display: block;
+  margin: 0 auto;
+  margin-top: 15px;
+  height: 45px;
+  width: 300px;
+  background: transparent;
+  color: #42f450;
+  border-bottom: 3px solid #42f450;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  font-size: 25px;
+  padding-left: 10px;
+  letter-spacing: 1px;
+}
+
+input:focus {
+  outline: none;
+}
+
+button {
+  color: #42f450;
+  background-color: transparent;
+  border: 3px solid #42f450;
+  border-radius: 3px;
+  margin-top: 12px;
+  min-width: 100px;
+  min-height: 35px;
+  padding: 5px 10px;
+  font-size: 1.2em;
+  letter-spacing: 1px;
+}
+
+button:focus {
+  outline: none;
+}
+
+.ReactModal__Content.ReactModal__Content--after-open {
+  background: #111111 !important;
+  color: #42f450;
+  width: 750px;
+  margin: 0 auto;
+}
+
+.ReactModal__Content img {
+  display: block;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+
+.ReactModal__Content button {
+  border: none;
+  float: right;
+}
+
+.ReactModal__Content p {
+  font-size: 1.3em;
+  margin-top: 15px;
+  letter-spacing: 1px;
+}
+
+.ReactModal__Content p.title {
+  font-size: 1.5em;
+  color: #fff;
+}
+
+.information {
+  margin-top: 30px;
+}
+
+
+/* Media queries */
+
+@media (max-width: 823px) {
+  .ReactModal__Content.ReactModal__Content--after-open {
+    width: 600px;
+  }
+  .ReactModal__Content p {
+    font-size: 1.2em;
+  }
+}
+
+@media (max-width: 767px) {
+  .ReactModal__Content img {
+    margin-top: 30px;
+  }
+  .information {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 672px) {
+  .ReactModal__Content.ReactModal__Content--after-open {
+    width: 500px;
+  }
+  .ReactModal__Content img {
+    width: 150px;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 560px) {
+  .ReactModal__Content.ReactModal__Content--after-open {
+    width: 400px;
+  }
+  .ReactModal__Content p {
+    font-size: 1.1em;
+  }
+}
+
+@media (max-width: 463px) {
+  .ReactModal__Content.ReactModal__Content--after-open {
+    width: 350px;
+    left: 25px !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .ReactModal__Content.ReactModal__Content--after-open {
+    width: 300px;
+    left: 40px !important;
+  }
+}
+
+@media (max-width: 370px) {
+  .ReactModal__Content.ReactModal__Content--after-open {
+    width: 300px;
+    left: 30px !important;
+  }
+}
+
+@media (max-width: 350px) {
+  .ReactModal__Content.ReactModal__Content--after-open {
+    width: 300px;
+    left: 25px !important;
+  }
+}
+
+@media (max-width: 340px) {
+  .ReactModal__Content.ReactModal__Content--after-open {
+    width: 300px;
+    left: 20px !important;
+  }
+}
+
+@media (max-width: 330px) {
+  .ReactModal__Content.ReactModal__Content--after-open {
+    width: 300px;
+    left: 15px !important;
+  }
+}
+
+@media (max-width: 320px) {
+  .ReactModal__Content.ReactModal__Content--after-open {
+    width: 300px;
+    left: 10px !important;
+  }
 }

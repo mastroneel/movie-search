@@ -68,7 +68,7 @@ class Search extends Component {
 
     var movieThumbnail = _.map(this.state.movies, (movie) => {
       return (
-        <div className="col-xs-12 col-sm-4 col-md-3 movie-thumbnail">
+        <div className="col-xs-12 col-sm-4 col-lg-3 movie-thumbnail">
           <div>
             <img src={`https://image.tmdb.org/t/p/w185/${movie.poster_path}`} alt="poster" />
           </div>
@@ -98,6 +98,7 @@ class Search extends Component {
 
     return (
       <div className="Search">
+        <h1>Search for a movie title...</h1>
         <form>
           <input ref="query" onChange={ (e) => { this.updateSearch(); } } type="text" />
         </form>
