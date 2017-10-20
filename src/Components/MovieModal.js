@@ -6,7 +6,6 @@ import _ from 'lodash';
 class MovieModal extends React.Component {
   constructor(){
     super();
-
     this.state = {
       isActive: false
     }
@@ -15,11 +14,6 @@ class MovieModal extends React.Component {
   componentWillMount(){
     Modal.setAppElement('body');
   }
-
-
-
-
-
 
   toggleModal = () => {
     this.setState({
@@ -30,8 +24,6 @@ class MovieModal extends React.Component {
   render(){
 
     var title = this.props.title;
-
-    // var movieInfo = this.props.movieInfo;
 
     var year = this.props.year;
 
@@ -50,7 +42,7 @@ class MovieModal extends React.Component {
         <Modal isOpen={this.state.isActive} onRequestClose={this.toggleModal}>
           <button onClick={this.toggleModal}>Close</button>
           <div className="col-xs-12 col-sm-6">
-            <img src={`https://image.tmdb.org/t/p/w185/${posterPath}`} alt="poster" />
+            <img src={`https://image.tmdb.org/t/p/w185/${posterPath}`} alt="poster not available" />
           </div>
           <div className="col-xs-12 col-sm-6 information">
             <p className="title">
@@ -69,7 +61,6 @@ class MovieModal extends React.Component {
               {genres}
             </p>
           </div>
-          {/* {movieInfo} */}
         </Modal>
       </section>
     )

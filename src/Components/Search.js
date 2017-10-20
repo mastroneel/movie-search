@@ -1,18 +1,11 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import Movie from './Movie';
 import MovieModal from './MovieModal';
 import Request from 'superagent';
 import ReactBootstrap from 'react-bootstrap';
 import _ from 'lodash';
 
 class Search extends Component {
-
-
-  // handleChange(e) {
-  //   e.target.select();
-  // }
-
   constructor(){
     super();
     this.state = {};
@@ -36,8 +29,6 @@ class Search extends Component {
     this.search();
   }
 
-
-
   render() {
     var movieInfo = _.map(this.state.movies, (movie) => {
       return (
@@ -50,10 +41,6 @@ class Search extends Component {
       );
     });
 
-    // var title = _.map(this.state.movies, (movie) => {
-    //   return <div>{movie.title}</div>;
-    // });
-
     var movieId = _.map(this.state.movies, (movie) => {
       return (
         <div>
@@ -62,15 +49,11 @@ class Search extends Component {
       );
     });
 
-    // var year = _.map(this.state.movies, (movie) => {
-    //   return <div>{movie.release_date}</div>;
-    // });
-
     var movieThumbnail = _.map(this.state.movies, (movie) => {
       return (
         <div className="col-xs-12 col-sm-4 col-lg-3 movie-thumbnail">
           <div>
-            <img src={`https://image.tmdb.org/t/p/w185/${movie.poster_path}`} alt="poster" />
+            <img src={`https://image.tmdb.org/t/p/w185/${movie.poster_path}`} alt="poster not available" />
           </div>
           <div>
             <MovieModal
@@ -85,17 +68,6 @@ class Search extends Component {
       );
     });
 
-    //
-
-    //
-    // var poster = _.map(this.state.movies, (movie) => {
-    //   return <div><img src={`http://image.tmdb.org/t/p/w185/${movie.poster_path}`} alt="poster" /></div>;
-    // });
-    //
-    // var overview = _.map(this.state.movies, (movie) => {
-    //   return <div>{movie.overview}</div>;
-    // });
-
     return (
       <div className="Search">
         <h1>Search for a movie title...</h1>
@@ -103,19 +75,6 @@ class Search extends Component {
           <input ref="query" onChange={ (e) => { this.updateSearch(); } } type="text" />
         </form>
         {movieThumbnail}
-
-         {/* <form className="searchbar">
-           <input ref="search suggestion" onClick={this.handleChange} type="text" placeholder="Search Movie Title..." />
-         </form> */}
-
-
-
-
-
-
-
-
-         {/* <Movie movieInfo={movieInfo}/> */}
       </div>
     );
   }
